@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cos.baseball.action.Action;
+import com.cos.baseball.action.PlayerListAction;
 import com.cos.baseball.action.TeamListAction;
 
-@WebServlet("/teamList")
+@WebServlet("/league")
 public class TeamListController extends HttpServlet{
 	private final static String TAG = "TeamListController : ";
 	private static final long serialVersionUID = 1L;
@@ -29,7 +30,7 @@ public class TeamListController extends HttpServlet{
 	}
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// http://localhost:8000/BaseballList/teamList?cmd=team
+		// http://localhost:8000/PremierLeague/league?cmd=team
 		String cmd = request.getParameter("cmd");
 		System.out.println(TAG + "router : " + cmd);
 		Action action = router(cmd);
@@ -37,8 +38,10 @@ public class TeamListController extends HttpServlet{
 	}
 	
 	public Action router(String cmd) {
-		if(cmd.equals("team")) {
+		if(cmd.equals("teamList")) {
 			return new TeamListAction();
+		} else if(cmd.equals("playerList")) {
+			return new PlayerListAction();
 		}
 		return null;
 	}

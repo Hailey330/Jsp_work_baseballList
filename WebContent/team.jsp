@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Baseball Team List</title>
+<title>Premier League Team</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -16,7 +16,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-4">
-				<h2>Baseball Team</h2>
+				<h2>Premier League Team</h2>
 				<table class="table">
 					<thead>
 						<tr>
@@ -28,7 +28,7 @@
 						<c:forEach var="team" items="${teams}">
 						<tr>
 							<td>${team.id}</td>
-							<td onclick="membersList()">${team.teamName}</td>
+							<td onclick="playerList()">${team.teamName}</td>
 						</tr>
 						</c:forEach>
 					</tbody>
@@ -36,7 +36,7 @@
 			</div>
 
 			<div class="col-sm-4">
-				<h2>Team Members</h2>
+				<h2>Team Players</h2>
 				<table class="table">
 					<thead>
 						<tr>
@@ -44,11 +44,11 @@
 							<th>Player Name</th>
 						</tr>
 					</thead>
-					<tbody id="members__list">
-						<c:forEach var="members" items="${members}">
+					<tbody id="players__list">
+						<c:forEach var="player" items="${players}">
 						<tr class="table-info">
-							<td>${members.id}</td>
-							<td>${members.playerName}</td>
+							<td>${player.id}</td>
+							<td>${player.playerName}</td>
 						</tr>
 						</c:forEach>
 					</tbody>
@@ -56,7 +56,7 @@
 			</div>
 
 			<div class="col-sm-4">
-				<h2>Team of Player</h2>
+				<h2>Player Details</h2>
 				<table class="table">
 					<thead>
 						<tr>
@@ -67,9 +67,9 @@
 					</thead>
 					<tbody id="player__list">
 						<tr class="table-warning">
-							<td>Default</td>
-							<td>Defaultson</td>
-							<td>Defaultson</td>
+							<td>${player.id}</td>
+							<td>${player.playerName}</td>
+							<td>${player.position}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -80,5 +80,5 @@
 
 </body>
 
-<script src="/BaseballList/js/teamList.js"></script>
+<script src="/PremierLeague/js/team.js"></script>
 </html>

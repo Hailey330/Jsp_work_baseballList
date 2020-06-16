@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 public class Player {
 	private int id;
 	private int teamId;
-	private int playerId;
 	private String playerName;
 	private String position;
 }
