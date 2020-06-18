@@ -12,9 +12,9 @@ function playerList() {
 		for(var player of result) {
 			var string = 
 			`<tr class="table-info">
-			<td>${player.id}</td>
-			<td>${player.playerName}</td>
-			</tr>`;	
+				<td>${player.id}</td>
+				<td>${player.playerName}</td>
+			 </tr>`;
 			
 			$("#players__list").append(string);
 		}

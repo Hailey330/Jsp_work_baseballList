@@ -23,6 +23,7 @@ public class PlayerRepository {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
+	
 	public List<Player> findAll() {
 		final String SQL = "SELECT id, teamid, playername, position FROM player ORDERB BY id ASC";
 		List<Player> players = new ArrayList<>();
