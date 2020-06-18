@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -7,10 +8,14 @@
 <title>Premier League Team</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -26,10 +31,10 @@
 					</thead>
 					<tbody id="team__list">
 						<c:forEach var="team" items="${teams}">
-						<tr>
-							<td>${team.id}</td>
-							<td onclick="playerList()">${team.teamName}</td>
-						</tr>
+							<tr onclick="playerList()">
+								<td>${team.id}</td>
+								<td>${team.teamName}</td>
+							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
@@ -46,10 +51,10 @@
 					</thead>
 					<tbody id="players__list">
 						<c:forEach var="player" items="${players}">
-						<tr class="table-info">
-							<td>${player.id}</td>
-							<td>${player.playerName}</td>
-						</tr>
+							<tr onclick="detailList()">
+								<td>${player.id}</td>
+								<td>${player.playerName}</td>
+							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
@@ -65,20 +70,23 @@
 							<th>Player Position</th>
 						</tr>
 					</thead>
-					<tbody id="player__list">
-						<tr class="table-warning">
-							<td>${player.id}</td>
-							<td>${player.playerName}</td>
-							<td>${player.position}</td>
-						</tr>
+					<tbody id="details__list">
+						<c:forEach var="player" items="${players}">
+							<tr class="table-warning">
+								<td>${player.id}</td>
+								<td>${player.playerName}</td>
+								<td>${player.position}</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
-			
+
 		</div>
 	</div>
 
 </body>
 
 <script src="/PremierLeague/js/team.js"></script>
+
 </html>

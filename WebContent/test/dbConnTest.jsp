@@ -1,4 +1,4 @@
-<%@page import="com.cos.baseball.db.DBConn"%>
+<%@page import="com.cos.league.db.DBConn"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
