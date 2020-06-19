@@ -12,18 +12,22 @@ import com.cos.league.repository.PlayerRepository;
 import com.cos.league.util.Script;
 import com.google.gson.Gson;
 
-public class DetailListAction implements Action{
+public class DetailListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		Gson gson = new Gson();
-		
+
+		String playerName = request.getParameter("playerName");
+		System.out.println("DetailListAction : playerName : " + playerName);
+
 		PlayerRepository playerRepository = PlayerRepository.getInstance();
-		List<Player> players = playerRepository.findAll();
-		String detailsJson = gson.toJson(players);
-		Script.outJson(detailsJson, response);
-		System.out.println("DetailListAction : detailsJson : " + detailsJson);
-		
+		List<Player> players = playerRepository.findByName(playerName);
+
+		Gson gson = new Gson();
+		String playersJson = gson.toJson(players);
+
+		Script.outJson(playersJson, response);
+		System.out.println("DetailListAction : playersJson : " + playersJson);
+
 	}
 }

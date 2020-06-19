@@ -1,13 +1,17 @@
-function detailList() {
+function detailList(playerName) {
 	
+	var data = {
+			playerName : playerName
+	};
+	console.log(playerName);
+
 	$.ajax({
 		type : "post",
-		url : "/PremierLeague/league?cmd=detailList",
-		contentType : "application/json; charset=uft-8",
+		url : "/premierLeague/league?cmd=detailList",
+		data : data,
 		dataType : "json"
 	}).done(function(result) {
 		console.log(result);
-		alert("선수 디테일 정보 불러오기 성공");
 		$("#details__list").empty();
 
 		for(var player of result) {
@@ -25,24 +29,27 @@ function detailList() {
 	});
 }
 
-function playerList() {
+function playerList(teamName) {
+	
+	var data = {
+			teamName : teamName
+	};
 	
 	$.ajax({
 		type : "post",
-		url : "/PremierLeague/league?cmd=playerList",
-		contentType : "application/json; charset=uft-8",
+		url : "/premierLeague/league?cmd=playerList",
+		data : data,
 		dataType : "json"
 	}).done(function(result) {
 		console.log(result);
-		alert("선수 목록 불러오기 성공");
 		$("#players__list").empty();
 
 		for(var player of result) {
 			var string = 
-			`<tr class="table-info">
-				<td>${player.id}</td>
-				<td>${player.playerName}</td>
-			 </tr>`;
+			`<tr class="table-info" onclick="detailList('${player.playerName}')">
+			<td>${player.id}</td>
+			<td>${player.playerName}</td>
+			</tr>`;
 			
 			$("#players__list").append(string);
 		}
